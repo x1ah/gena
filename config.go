@@ -2,6 +2,7 @@ package gena
 
 import (
 	"io/ioutil"
+	"path/filepath"
 
 	"gopkg.in/yaml.v2"
 )
@@ -38,7 +39,7 @@ type Site struct {
 
 // ParseConfig parse config from file
 func ParseConfig(file string) (*Config, error) {
-	buf, err := ioutil.ReadFile(file)
+	buf, err := ioutil.ReadFile(filepath.Clean(file))
 	if err != nil {
 		return nil, err
 	}
