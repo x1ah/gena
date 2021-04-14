@@ -1,0 +1,60 @@
+# GitHub Actions Workflow responsible for cleaning up the IntelliJ Platform Plugin Template repository from
+# the template-specific files and configurations. This workflow is supposed to be triggered automatically
+# when a new template-based repository has been created.
+
+name: Template Cleanup
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  # Run cleaning process only if workflow is triggered by the other repository.
+  template-cleanup:
+    name: Template Cleanup
+    runs-on: ubuntu-latest
+    if: github.event.repository.name != 'go-skeleton'
+    steps:
+
+      # Check out current repository
+      - name: Fetch Sources
+        uses: actions/checkout@v2
+
+      # Cleanup project
+      - name: Cleanup
+        run: |
+          # Prepare variables
+          NAME="${GITHUB_REPOSITORY##*/}"
+          ACTOR=$(echo $GITHUB_ACTOR | tr '[:upper:]' '[:lower:]')
+          SAFE_NAME=$(echo $NAME | sed 's/[- ]/_/g' | sed 's/[^a-zA-Z0-9_]//g' | tr '[:upper:]' '[:lower:]')
+          SAFE_ACTOR=$(echo $ACTOR | sed 's/[- ]/_/g' | sed 's/[^a-zA-Z0-9_]//g' | tr '[:upper:]' '[:lower:]')
+
+          # Replace placeholders
+          find . -type f -not -path '*/.git/*' -exec sed -i "s/%NAME%/$NAME/g" {} +
+          find . -type f -not -path '*/.git/*' -exec sed -i "s/%ACTOR%/$ACTOR/g" {} +
+          find . -type f -not -path '*/.git/*' -exec sed -i "s/%SAFE_NAME%/$SAFE_NAME/g" {} +
+          find . -type f -not -path '*/.git/*' -exec sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" {} +
+
+          # Move content
+          cat .github/repo/README.md > README.md
+          cat .github/repo/LICENSE > LICENSE
+
+          # Cleanup
+          rm -rf \
+            .github/repo \
+            .github/workflows/init-project.yml \
+
+      # Commit modified files
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Init project"
+      # Push changes
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
