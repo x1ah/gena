@@ -1,13 +1,23 @@
-# go-skeleton
+## gena
 
-Go project template
-
-## Getting started
-
-click the <kbd>Use this template</kbd> button and wait a few minutes for init project.
+![Test](https://github.com/x1ah/gena/workflows/Test/badge.svg) ![Lint](https://github.com/x1ah/gena/workflows/Lint/badge.svg)
 
 ---
 
+
+## Test
+
+```
+make test
+```
+
+## Build
+
+```
+make build
+```
+
+---
 
 ref:
 
