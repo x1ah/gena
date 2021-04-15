@@ -7,6 +7,9 @@ Navigation website generator | [中文文档](https://github.com/x1ah/gena/blob/
 
 ---
 
+![image](https://user-images.githubusercontent.com/14919255/114878771-29fe8980-9e33-11eb-834c-515379882664.png)
+
+
 ## Install
 
 ### GitHub Template (**Recommended**)
@@ -51,5 +54,7 @@ gena -c your/path/to/config.yaml > index.html
 
 Just open `index.html` in your browser
 
-![image](https://user-images.githubusercontent.com/14919255/114753545-27942500-9d8a-11eb-984a-a9cbb9c7e3b7.png)
 
+## Use cases
+
+- [x1ah's nav](https://when.run/nav)
