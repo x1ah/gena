@@ -9,6 +9,11 @@ Navigation website generator | [中文文档](https://github.com/x1ah/gena/blob/
 
 ## Install
 
+### GitHub Template (**Recommended**)
+
+Use [gena-template](https://github.com/x1ah/gena-template) to automate generate
+
+
 ### From source
 
 **go1.16 required**

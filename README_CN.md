@@ -9,6 +9,10 @@
 
 ## 安装
 
+### 一键生成（**推荐**）
+
+从 [gena-template](https://github.com/x1ah/gena-template) 自动生成
+
 ### 源码安装
 
 **go1.16 required**
