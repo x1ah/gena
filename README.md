@@ -14,7 +14,7 @@ Navigation website generator | [中文文档](https://github.com/x1ah/gena/blob/
 **go1.16 required**
 
 ```asciidoc
-go get github.com/x1ah/gena/cmd/gena
+go install github.com/x1ah/gena/cmd/gena
 ```
 
 ```asciidoc

@@ -14,7 +14,7 @@
 **go1.16 required**
 
 ```asciidoc
-go get github.com/x1ah/gena/cmd/gena
+go install github.com/x1ah/gena/cmd/gena
 ```
 
 ```asciidoc
