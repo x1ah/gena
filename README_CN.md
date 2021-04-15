@@ -1,4 +1,4 @@
-## gena
+# gena
 
 导航网站生成器 | [英文文档](https://github.com/x1ah/gena/blob/master/README.md)
 
@@ -7,7 +7,9 @@
 
 ---
 
-### 安装
+## 安装
+
+### 源码安装
 
 **go1.16 required**
 
@@ -23,6 +25,10 @@ Usage of ./gena:
   -t string
     	Template name, available: webstack (default "webstack")
 ```
+
+### 可执行文件下载
+
+从 [Release page](https://github.com/x1ah/gena/releases) 下载对应平台文件
 
 ### 生成网站
 

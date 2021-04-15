@@ -1,4 +1,4 @@
-## gena
+# gena
 
 Navigation website generator | [中文文档](https://github.com/x1ah/gena/blob/master/README_CN.md)
 
@@ -7,7 +7,9 @@ Navigation website generator | [中文文档](https://github.com/x1ah/gena/blob/
 
 ---
 
-### Install
+## Install
+
+### From source
 
 **go1.16 required**
 
@@ -23,6 +25,11 @@ Usage of ./gena:
   -t string
     	Template name, available: webstack (default "webstack")
 ```
+
+### Download binary release
+
+Download from [Release page](https://github.com/x1ah/gena/releases)
+
 
 ### Generate
 
