@@ -9,14 +9,15 @@ import (
 
 // Config is struct of gena's config
 type Config struct {
-	Title       string
-	Description string
-	Template    string
-	URL         string
-	Logo        string
-	Github      string
-	Footer      string
-	Content     *Content
+	Title           string
+	Description     string
+	Template        string
+	URL             string
+	Logo            string
+	Github          string
+	Footer          string
+	Content         *Content
+	GoogleAnalytics string `yaml:"google_analytics"`
 }
 
 // Content is struct of categories
@@ -48,6 +49,5 @@ func ParseConfig(file string) (*Config, error) {
 	if err := yaml.Unmarshal(buf, cfg); err != nil {
 		return nil, err
 	}
-
 	return cfg, nil
 }

@@ -17,6 +17,8 @@ footer: © 2017-2020 WebStack design by Viggo
 # 1. webstack (http://webstack.cc)
 template: webstack
 
+google_analytics: "G-EXE1PJ8CR2"
+
 content:
   categories:
     - name: 社区
