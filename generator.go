@@ -3,12 +3,12 @@ package gena
 import (
 	"embed"
 	"fmt"
-	"html/template"
 	"log"
 	"net"
 	"net/url"
 	"os"
 	"strings"
+	"text/template"
 )
 
 // Generator is interface of template generator
