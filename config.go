@@ -11,6 +11,7 @@ import (
 type Config struct {
 	Title       string
 	Description string
+	Template    string
 	URL         string
 	Logo        string
 	Github      string

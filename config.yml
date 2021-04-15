@@ -16,6 +16,10 @@ github: "https://github.com/x1ah"
 # footer message
 footer: © 2017-2020 WebStack design by Viggo
 
+# template(theme) of your site, available:
+# 1. webstack (http://webstack.cc)
+template: webstack
+
 content:
   categories:
     - name: 社区

@@ -8,7 +8,6 @@ import (
 )
 
 func main() {
-	tmpl := flag.String("t", "webstack", "Template name, available: webstack")
 	cfgFile := flag.String("c", "config.yml", "Config file")
 
 	flag.Parse()
@@ -19,7 +18,7 @@ func main() {
 	}
 
 	var generator gena.Generator
-	switch *tmpl {
+	switch cfg.Template {
 	case "webstack":
 		generator = &gena.WebStackGenerator{}
 	default:

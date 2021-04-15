@@ -22,8 +22,6 @@ go get github.com/x1ah/gena/cmd/gena
 Usage of ./gena:
   -c string
     	Config file (default "config.yml")
-  -t string
-    	Template name, available: webstack (default "webstack")
 ```
 
 ### Download binary release
