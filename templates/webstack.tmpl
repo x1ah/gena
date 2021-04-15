@@ -18,7 +18,11 @@
       gtag('config', '{{ .GoogleAnalytics }}');
     </script>
     {{ end }}
+    {{ if .Favicon }}
+    <link rel="shortcut icon" href="{{ .Favicon }}">
+    {{ else }}
     <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/favicon.png">
+    {{ end }}
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/fonts/linecons/css/linecons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/fonts/fontawesome/css/font-awesome.min.css">

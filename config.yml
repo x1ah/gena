@@ -4,11 +4,14 @@ title: Example site
 # description of website
 description: Site description
 
+# favicon of website
+favicon: https://when.run/avator.jpeg
+
 # your website url
-url: "https://example.com"
+url: https://example.com
 
 # github profile url
-github: "https://github.com/x1ah"
+github: https://github.com/x1ah
 
 # footer message
 footer: © 2017-2020 WebStack design by Viggo

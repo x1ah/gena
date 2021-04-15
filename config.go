@@ -14,6 +14,7 @@ type Config struct {
 	Template        string
 	URL             string
 	Logo            string
+	Favicon         string
 	Github          string
 	Footer          string
 	Content         *Content
