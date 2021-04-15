@@ -35,7 +35,6 @@ type Site struct {
 	Name        string
 	Description string
 	URL         string
-	Logo        string
 }
 
 // ParseConfig parse config from file

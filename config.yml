@@ -7,9 +7,6 @@ description: Site description
 # your website url
 url: "https://example.com"
 
-# logo image url
-logo: "https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/favicon.png"
-
 # github profile url
 github: "https://github.com/x1ah"
 
@@ -27,36 +24,28 @@ content:
         - name: V2EX
           description: 创意工作者的社区。
           url: https://v2ex.com
-          logo: https://www.v2ex.com/static/icon-192.png
 
         - name: 36kr
           description: 创业资讯、科技新闻
           url: https://36kr.com/
-          logo: https://36kr.com/favicon.ico
         - name: 36kr
           description: 创业资讯、科技新闻
           url: https://36kr.com/
-          logo: https://36kr.com/favicon.ico
         - name: 36kr
           description: 创业资讯、科技新闻
           url: https://36kr.com/
-          logo: https://36kr.com/favicon.ico
         - name: 36kr
           description: 创业资讯、科技新闻
           url: https://36kr.com/
-          logo: https://36kr.com/favicon.ico
         - name: 36kr
           description: 创业资讯、科技新闻
           url: https://36kr.com/
-          logo: https://36kr.com/favicon.ico
         - name: 36kr
           description: 创业资讯、科技新闻
           url: https://36kr.com/
-          logo: https://36kr.com/favicon.ico
         - name: 36kr
           description: 创业资讯、科技新闻
           url: https://36kr.com/
-          logo: https://36kr.com/favicon.ico
 
     - name: 图标素材
       sites:

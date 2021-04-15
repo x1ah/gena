@@ -46,10 +46,18 @@
                     <!-- logo -->
                     <div class="logo">
                         <a href="/" class="logo-expanded">
+                            {{ if .Logo }}
                             <img src="{{ .Logo }}" width="100%" alt="" />
+                            {{ else }}
+                            <p class="overflowClip_2" style="font-size: 20px;"><strong>{{ .Title }}</strong></p>
+                            {{ end}}
                         </a>
                         <a href="/" class="logo-collapsed">
-                            <img src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/logo-collapsed@2x.png" width="40" alt="" />
+                            {{ if .Logo }}
+                            <img src="{{ .Logo }}" width="40" alt="" />
+                            {{ else }}
+                            <p class="overflowClip_2" style="font-size: 20px;"><strong>{{ .Title }}</strong></p>
+                            {{ end}}
                         </a>
                     </div>
                     <div class="mobile-menu-toggle visible-xs">
@@ -102,7 +110,7 @@
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('{{ .URL }}', '_blank')" data-toggle="tooltip" data-placement="bottom" title="{{ .Name }}" data-original-title="{{ .URL }}">
                         <div class="xe-comment-entry">
                             <a class="xe-user-img">
-                                <img data-src="{{ if .Logo }}{{ .Logo }}{{ else }}https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/favicon.png{{ end }}" class="lozad img-circle" width="40">
+                                <img data-src="{{ icon .URL }}" class="lozad img-circle" width="40">
                             </a>
                             <div class="xe-comment">
                                 <a href="#" class="xe-user-name overflowClip_1">
