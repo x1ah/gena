@@ -22,16 +22,17 @@ jobs:
         with:
           version: v1.35
 
-  errcheck:
-    name: Errcheck
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: check
-      uses: grandcolline/golang-github-actions@v1.1.0
-      with:
-        run: errcheck
-        token: ${{ secrets.GITHUB_TOKEN }}
+#  go1.16 required
+#  errcheck:
+#    name: Errcheck
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@master
+#    - name: check
+#      uses: grandcolline/golang-github-actions@v1.1.0
+#      with:
+#        run: errcheck
+#        token: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
     name: Lint
@@ -55,15 +56,16 @@ jobs:
         run: staticcheck
         token: ${{ secrets.GITHUB_TOKEN }}
 
-  sec:
-    name: Sec
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: check
-      uses: grandcolline/golang-github-actions@v1.1.0
-      with:
-        run: sec
-        token: ${{ secrets.GITHUB_TOKEN }}
-        flags: "-exclude=G104"
-
+#  go1.16 required
+#  sec:
+#    name: Sec
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@master
+#    - name: check
+#      uses: grandcolline/golang-github-actions@v1.1.0
+#      with:
+#        run: sec
+#        token: ${{ secrets.GITHUB_TOKEN }}
+#        flags: "-exclude=G104"
+#
