@@ -31,7 +31,7 @@ Usage of ./gena:
 Download from [Release page](https://github.com/x1ah/gena/releases)
 
 
-### Generate
+## Generate
 
 Define your config.yaml firstly, there are a sample config file: [config.yml](https://github.com/x1ah/gena/blob/master/config.yml)
 
@@ -39,7 +39,12 @@ Define your config.yaml firstly, there are a sample config file: [config.yml](ht
 gena -c your/path/to/config.yaml > index.html
 ```
 
-### Preview
+### Available templates
+
+- [webstack](http://webstack.cc/)
+
+
+## Preview
 
 Just open `index.html` in your browser
 

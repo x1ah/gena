@@ -30,7 +30,7 @@ Usage of ./gena:
 
 从 [Release page](https://github.com/x1ah/gena/releases) 下载对应平台文件
 
-### 生成网站
+## 生成网站
 
 参照 [config.yml](https://github.com/x1ah/gena/blob/master/config.yml) 填入自己的网站列表
 
@@ -38,7 +38,12 @@ Usage of ./gena:
 gena -c your/path/to/config.yaml > index.html
 ```
 
-### 效果预览
+### 可选的模板
+
+- [webstack](http://webstack.cc/)
+
+
+## 效果预览
 
 浏览器打开生成的 `index.html`
 
