@@ -1,6 +1,6 @@
 # gena
 
-导航网站生成器 | [英文文档](https://github.com/x1ah/gena/blob/master/README_EN.md)
+导航网站生成器 | [English Document](https://github.com/x1ah/gena/blob/master/README_EN.md)
 
 
 ![Test](https://github.com/x1ah/gena/workflows/Test/badge.svg) ![Lint](https://github.com/x1ah/gena/workflows/Lint/badge.svg)
