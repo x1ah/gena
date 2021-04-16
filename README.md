@@ -1,6 +1,6 @@
 # gena
 
-Navigation website generator | [中文文档](https://github.com/x1ah/gena/blob/master/README_CN.md)
+导航网站生成器 | [英文文档](https://github.com/x1ah/gena/blob/master/README_EN.md)
 
 
 ![Test](https://github.com/x1ah/gena/workflows/Test/badge.svg) ![Lint](https://github.com/x1ah/gena/workflows/Lint/badge.svg)
@@ -10,19 +10,18 @@ Navigation website generator | [中文文档](https://github.com/x1ah/gena/blob/
 ![image](https://user-images.githubusercontent.com/14919255/114878771-29fe8980-9e33-11eb-834c-515379882664.png)
 
 
-## Install
+## 安装
 
-### GitHub Template (**Recommended**)
+### 一键生成（**推荐**）
 
-Use [gena-template](https://github.com/x1ah/gena-template) to automate generate
+从 [gena-template](https://github.com/x1ah/gena-template) 自动生成并自动部署到 GitHub Pages
 
-
-### From source
+### 源码安装
 
 **go1.16 required**
 
 ```asciidoc
-go install github.com/x1ah/gena/cmd/gena
+go get -u github.com/x1ah/gena/cmd/gena
 ```
 
 ```asciidoc
@@ -30,31 +29,31 @@ go install github.com/x1ah/gena/cmd/gena
 Usage of ./gena:
   -c string
     	Config file (default "config.yml")
+  -t string
+    	Template name, available: webstack (default "webstack")
 ```
 
-### Download binary release
+### 可执行文件下载
 
-Download from [Release page](https://github.com/x1ah/gena/releases)
+从 [Release page](https://github.com/x1ah/gena/releases) 下载对应平台文件
 
+## 生成网站
 
-## Generate
-
-Define your config.yaml firstly, there are a sample config file: [config.yml](https://github.com/x1ah/gena/blob/master/config.yml)
+参照 [config.yml](https://github.com/x1ah/gena/blob/master/config.yml) 填入自己的网站列表
 
 ```asciidoc
-gena -c your/path/to/config.yaml > index.html
+gena -c your/path/to/config.yaml 1> index.html
 ```
 
-### Available templates
+### 可选的模板
 
 - [webstack](http://webstack.cc/)
 
 
-## Preview
+## 效果预览
 
-Just open `index.html` in your browser
+浏览器打开生成的 `index.html`
 
+## 使用案例
 
-## Use cases
-
-- [x1ah's nav](https://when.run/nav)
+- [when.run/nav](https://when.run/nav/)
