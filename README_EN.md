@@ -7,7 +7,7 @@ Navigation website generator | [中文文档](https://github.com/x1ah/gena/blob/
 
 ---
 
-![image](https://user-images.githubusercontent.com/14919255/114878771-29fe8980-9e33-11eb-834c-515379882664.png)
+![image](https://user-images.githubusercontent.com/14919255/115016835-3395f900-9ee8-11eb-90d7-5ed816f59872.png)
 
 
 ## Install
