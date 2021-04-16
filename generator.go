@@ -35,15 +35,15 @@ func (ws *WebStackGenerator) Run(cfg *Config) {
 
 // icon return favicon of url
 func icon(rawurl string) string {
-	duck := "https://icons.duckduckgo.com/ip3/%s.ico"
+	base := "https://f.start.me/%s"
 	rawurl = strings.TrimSpace(rawurl)
 	u, err := url.Parse(rawurl)
 	if err != nil {
-		return fmt.Sprintf(duck, "")
+		return fmt.Sprintf(base, "o.oo")
 	}
 	host := u.Host
 	if strings.Contains(host, ":") {
 		host, _, _ = net.SplitHostPort(host)
 	}
-	return fmt.Sprintf(duck, host)
+	return fmt.Sprintf(base, host)
 }
