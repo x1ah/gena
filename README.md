@@ -3,7 +3,7 @@
 导航网站生成器 | [English Document](https://github.com/x1ah/gena/blob/master/README_EN.md)
 
 
-![Test](https://github.com/x1ah/gena/workflows/Test/badge.svg) ![Lint](https://github.com/x1ah/gena/workflows/Lint/badge.svg)
+![Test](https://github.com/x1ah/gena/workflows/Test/badge.svg) ![Lint](https://github.com/x1ah/gena/workflows/Lint/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/x1ah/gena)](https://goreportcard.com/report/github.com/x1ah/gena)
 
 ---
 
