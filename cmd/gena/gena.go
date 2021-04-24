@@ -3,8 +3,10 @@ package main
 import (
 	"flag"
 	"log"
+	"os"
 
 	"github.com/x1ah/gena"
+	"github.com/x1ah/gena/generators"
 )
 
 func main() {
@@ -17,12 +19,12 @@ func main() {
 		log.Fatal("Parse Config file error: ", err.Error())
 	}
 
-	var generator gena.Generator
+	var generator generators.Generator
 	switch cfg.Template {
 	case "webstack":
-		generator = &gena.WebStackGenerator{}
+		generator = &generators.WebStackGenerator{}
 	default:
 		log.Fatal("Invalid template name, expected: webstack")
 	}
-	generator.Run(cfg)
+	generator.Run(cfg, os.Stdout)
 }
