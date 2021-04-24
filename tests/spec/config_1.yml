@@ -1,0 +1,75 @@
+# title of website
+title: 我的导航站
+
+# description of website
+description: x1ah's navigation site
+
+# favicon of website
+favicon: "https://github.com/x1ah.png?size=40"
+
+# your website url
+url: https://x1ah.github.io/nav/
+
+# github profile url
+github: https://github.com/x1ah/nav
+
+# footer message
+footer: © 2021-2021 @x1ah
+
+# template(theme) of your site, available:
+# 1. webstack (http://webstack.cc)
+template: webstack
+
+# Google analytics
+google_analytics: G-EXE1PJ8CR2
+
+content:
+  categories:
+    - name: 常用推荐
+      sites:
+        - name: GitHub
+          description: GitHub
+          url: https://github.com/
+        - name: V2EX
+          description: 技术论坛，创意工作者们的社区
+          url: https://www.v2ex.com/
+        - name: JSON Editor Online
+          description: JSON 工具，可以对比两个 JSON，以及分享 JSON 片段
+          url: https://jsoneditoronline.org/
+        - name: Excalidraw
+          description: 流程图工具，可以画手写风格的图表
+          url: https://excalidraw.com/
+    - name: 技术工具
+      sites:
+        - name: misaka ping
+          description: 多点 Ping 工具
+          url: https://ping.sx/ping
+        - name: JSON Editor Online
+          description: JSON 工具，可以对比两个 JSON，以及分享 JSON 片段
+          url: https://jsoneditoronline.org/
+        - name: Excalidraw
+          description: 流程图工具，可以画手写风格的图表
+          url: https://excalidraw.com/
+        - name: ip.sb
+          description: IP 获取
+          url: https://ip.sb/
+    - name: 论坛社区
+      sites:
+        - name: 虎扑步行街
+          description: 虎扑步行街热门话题，每日话题
+          url: https://bbs.hupu.com/all-gambia
+        - name: V2EX
+          description: 技术论坛，创意工作者们的社区
+          url: https://www.v2ex.com/
+        - name: GitHub Trending
+          description: GitHub 排行榜
+          url: https://github.com/trending
+        - name: Lobsters
+          description: 技术论坛
+          url: https://lobste.rs/
+        - name: 热门微博
+          description: 热门微博，微博热搜
+          url: https://weibo.com/hot
+        - name: Reddit Rust 频道
+          description: Reddit Rust 专区
+          url: https://www.reddit.com/r/rust/
