@@ -19,6 +19,7 @@ type Config struct {
 	Footer          string
 	Content         *Content
 	GoogleAnalytics string `yaml:"google_analytics"`
+	WebStack        *WebStackConf
 }
 
 // Content is struct of categories
@@ -37,6 +38,18 @@ type Site struct {
 	Name        string
 	Description string
 	URL         string
+}
+
+// WebStackConf is config of webstack
+type WebStackConf struct {
+	Search *WebStackSearchConf
+}
+
+// WebStackSearchConf search engine config
+type WebStackSearchConf struct {
+	Enabled bool
+	Default string
+	Engines []string
 }
 
 // ParseConfig parse config from file

@@ -23,6 +23,23 @@ template: webstack
 google_analytics: "G-EXE1PJ8CR2"
 
 
+webstack:
+  search:
+    enabled: true
+    default: google
+    # 可选的搜索引擎
+    engines:
+      - google
+      - github
+      - baidu
+      - zhihu
+      - weibo
+      - bilibili
+      - douban
+      - sougou
+      - bing
+
+
 content:
   categories:
     - name: 常用推荐

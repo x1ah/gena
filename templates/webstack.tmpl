@@ -32,6 +32,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/xenon-skins.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/nav.css">
     <script src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/jquery-1.11.1.min.js"></script>
+    {{ if searchEnabled }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/search.css">
+    {{ renderSearchEngines }}
+    {{ end }}
     <!-- / FB Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{ .URL }}">
@@ -108,6 +112,31 @@
                 </ul>
                 {{ end }}
             </nav>
+            {{ if searchEnabled }}
+            <section class="sousuo">
+              <div class="search">
+                <div class="search-box">
+                  <span class="search-icon" style="{{ defaultSearchEngineURL }}"></span>
+                  <input type="text" id="txt" class="search-input" autocomplete="off" placeholder="请输入关键字，按回车 / Enter 搜索">
+                  <button class="search-btn" id="search-btn"><i class="fa fa-search"></i></button>
+                </div>
+                <!-- 搜索热词 -->
+                <div class="box search-hot-text" id="box" style="display: none;">
+                  <ul></ul>
+                </div>
+                <!-- 搜索引擎 -->
+                <div class="search-engine" style="display: none;">
+                  <div class="search-engine-head">
+                    <strong class="search-engine-tit">选择您的默认搜索引擎：</strong>
+                    <div class="search-engine-tool">搜索热词： <span id="hot-btn"></span></div>
+                  </div>
+                  <ul class="search-engine-list search-engine-list_zmki_ul">
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <script>search()</script>
+            {{ end }}
             {{ range .Content.Categories }}
             <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="{{ .Name }}"></i>{{ .Name }}</h4>
             <div class="row">
