@@ -8,7 +8,6 @@
     <title>我的导航站</title>
     <meta name="keywords" content="x1ah's navigation site">
     <meta name="description" content="x1ah's navigation site">
-    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EXE1PJ8CR2"></script>
     <script>
@@ -17,7 +16,6 @@
       gtag('js', new Date());
       gtag('config', 'G-EXE1PJ8CR2');
     </script>
-    
     
     <link rel="shortcut icon" href="https://github.com/x1ah.png?size=40">
     
@@ -70,28 +68,24 @@
                     </div>
                 </header>
                 <ul id="main-menu" class="main-menu">
-                    
                     <li>
                         <a href="#常用推荐" class="smooth">
                             <i class="linecons-star"></i>
                             <span class="title">常用推荐</span>
                         </a>
                     </li>
-                    
                     <li>
                         <a href="#技术工具" class="smooth">
                             <i class="linecons-star"></i>
                             <span class="title">技术工具</span>
                         </a>
                     </li>
-                    
                     <li>
                         <a href="#论坛社区" class="smooth">
                             <i class="linecons-star"></i>
                             <span class="title">论坛社区</span>
                         </a>
                     </li>
-                    
                 </ul>
             </div>
         </div>
@@ -106,7 +100,6 @@
                         </a>
                     </li>
                 </ul>
-                
                 <ul class="user-info-menu right-links list-inline list-unstyled">
                     <li class="hidden-sm hidden-xs">
                         <a href="https://github.com/x1ah/nav" target="_blank">
@@ -114,12 +107,9 @@
                         </a>
                     </li>
                 </ul>
-                
             </nav>
-            
             <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="常用推荐"></i>常用推荐</h4>
             <div class="row">
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://github.com/', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://github.com/">
                         <div class="xe-comment-entry">
@@ -135,7 +125,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://www.v2ex.com/', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://www.v2ex.com/">
                         <div class="xe-comment-entry">
@@ -151,7 +140,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://jsoneditoronline.org/', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://jsoneditoronline.org/">
                         <div class="xe-comment-entry">
@@ -167,7 +155,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://excalidraw.com/', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://excalidraw.com/">
                         <div class="xe-comment-entry">
@@ -183,13 +170,10 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
             <br />
-            
             <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="技术工具"></i>技术工具</h4>
             <div class="row">
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://ping.sx/ping', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://ping.sx/ping">
                         <div class="xe-comment-entry">
@@ -205,7 +189,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://jsoneditoronline.org/', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://jsoneditoronline.org/">
                         <div class="xe-comment-entry">
@@ -221,7 +204,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://excalidraw.com/', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://excalidraw.com/">
                         <div class="xe-comment-entry">
@@ -237,7 +219,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://ip.sb/', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://ip.sb/">
                         <div class="xe-comment-entry">
@@ -253,13 +234,10 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
             <br />
-            
             <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="论坛社区"></i>论坛社区</h4>
             <div class="row">
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://bbs.hupu.com/all-gambia', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://bbs.hupu.com/all-gambia">
                         <div class="xe-comment-entry">
@@ -275,7 +253,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://www.v2ex.com/', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://www.v2ex.com/">
                         <div class="xe-comment-entry">
@@ -291,7 +268,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://github.com/trending', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://github.com/trending">
                         <div class="xe-comment-entry">
@@ -307,7 +283,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://lobste.rs/', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://lobste.rs/">
                         <div class="xe-comment-entry">
@@ -323,7 +298,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://weibo.com/hot', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://weibo.com/hot">
                         <div class="xe-comment-entry">
@@ -339,7 +313,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://www.reddit.com/r/rust/', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="https://www.reddit.com/r/rust/">
                         <div class="xe-comment-entry">
@@ -355,10 +328,8 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
             <br />
-            
             <!-- Main Footer -->
             <!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
             <!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
