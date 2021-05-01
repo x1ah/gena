@@ -41,6 +41,7 @@
             document.cookie = "night=0;path=/"
         }
     }
+    switchNightMode()
     </script>
     <!-- / FB Open Graph -->
     <meta property="og:type" content="article">
