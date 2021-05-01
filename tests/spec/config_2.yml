@@ -1,0 +1,173 @@
+# title of website
+title: 我的导航站
+
+# description of website
+description: x1ah's navigation site
+
+# favicon of website
+favicon: "https://github.com/x1ah.png?size=40"
+
+# your website url
+url: https://x1ah.github.io/nav/
+
+# github profile url
+github: https://github.com/x1ah/nav
+
+# footer message
+footer: © 2021-2021 @x1ah
+
+# template(theme) of your site, available:
+# 1. webstack (http://webstack.cc)
+template: webstack
+
+webstack:
+  search:
+    enabled: true
+    default: google
+    # 可选的搜索引擎
+    engines:
+      - google
+      - github
+      - weibo
+      - baidu
+      - bilibili
+      - zhihu
+
+# Google analytics
+google_analytics: G-EXE1PJ8CR2
+
+content:
+  categories:
+    - name: 常用推荐
+      sites:
+        - name: GitHub
+          description: GitHub
+          url: https://github.com/
+        - name: V2EX
+          description: 技术论坛，创意工作者们的社区
+          url: https://www.v2ex.com/
+        - name: JSON Editor Online
+          description: JSON 工具，可以对比两个 JSON，以及分享 JSON 片段
+          url: https://jsoneditoronline.org/
+        - name: Excalidraw
+          description: 流程图工具，可以画手写风格的图表
+          url: https://excalidraw.com/
+        - name: Lobsters
+          description: 技术论坛
+          url: https://lobste.rs/
+        - name: 斗鱼
+          description: 直播平台
+          url: https://www.douyu.com/
+        - name: 小霸王
+          description: 在线小霸王游戏机
+          url: https://www.yikm.net/
+        - name: 需要我帮你百度一下吗
+          description: 需要我帮你百度一下吗生成器
+          url: https://when.run/lmbdfy.html
+        - name: Google Analytics
+          description: Google Analytics 分析
+          url: https://analytics.google.com/analytics/web/
+    - name: 技术工具
+      sites:
+        - name: misaka ping
+          description: 多点 Ping 工具
+          url: https://ping.sx/ping
+        - name: JSON Editor Online
+          description: JSON 工具，可以对比两个 JSON，以及分享 JSON 片段
+          url: https://jsoneditoronline.org/
+        - name: Excalidraw
+          description: 流程图工具，可以画手写风格的图表
+          url: https://excalidraw.com/
+        - name: ip.sb
+          description: IP 获取
+          url: https://ip.sb/
+    - name: 论坛社区
+      sites:
+        - name: 虎扑步行街
+          description: 虎扑步行街热门话题，每日话题
+          url: https://bbs.hupu.com/all-gambia
+        - name: V2EX
+          description: 技术论坛，创意工作者们的社区
+          url: https://www.v2ex.com/
+        - name: GitHub Trending
+          description: GitHub 排行榜
+          url: https://github.com/trending  
+        - name: Lobsters
+          description: 技术论坛
+          url: https://lobste.rs/
+        - name: 热门微博
+          description: 热门微博，微博热搜
+          url: https://weibo.com/hot
+        - name: Reddit Rust 频道
+          description: Reddit Rust 专区
+          url: https://www.reddit.com/r/rust/
+    - name: 图片图集
+      sites:
+        - name: Unsplash
+          description: Beautiful Free Images & Pictures
+          url: https://unsplash.com/
+        - name: 花瓣网
+          description: 图片采集，图片分享
+          url: https://huaban.com/discovery/
+        - name: Pinterest
+          description: 世界上最大的图片社交分享网站
+          url: https://www.pinterest.com/
+        - name: Pixiv
+          description: 动漫图片，插画交流
+          url: https://www.pixiv.net/
+        - name: Food Pictures
+          description: 专门分享美食类照片
+          url: https://www.foodiesfeed.com/
+        - name: 谷歌艺术&文化
+          description: 谷歌出品，提供大量高清艺术作品和历史人物、事件的高清图片
+          url: https://artsandculture.google.com/explore
+        - name: 500px
+          description: 专业摄影交流，图片均由专业摄影师上传
+          url: https://500px.com/popular
+        - name: Pexels
+          description: 照片由专人挑选而来
+          url: https://www.pexels.com/zh-cn/
+    - name: 图床网站
+      sites:
+        - name: Imgur
+          description: 老牌国外免费图床
+          url: https://imgur.com/
+        - name: sm.ms
+          description: 国内免费图床
+          url: https://sm.ms/
+    - name: 休闲娱乐
+      sites:
+        - name: 小霸王
+          description: 在线小霸王游戏机，支持联机
+          url: https://www.yikm.net/
+        - name: 扫雷
+          description: 网页版扫雷，开箱即用
+          url: http://www.cctvjs.net/mine/
+        - name: 斗鱼
+          description: 直播平台
+          url: https://www.douyu.com/
+    - name: 学习资源
+      sites:
+        - name: Leetcode
+          description: 面试准备算法题必备，国内站和国外站数据互通
+          url: https://leetcode-cn.com/
+        - name: CodeTop
+          description: 企业面试题库
+          url: https://codetop.cc/#/home
+        - name: "6.824"
+          description: 著名的分布式课程
+          url: https://pdos.csail.mit.edu/6.824/index.html
+        - name: Talent Plan
+          description: Pincap 的开源学习计划，类似 6.824 课程
+          url: https://github.com/pingcap/talent-plan
+        - name: 黄简艺术工作室
+          description: 很完善的一套书法教程
+          url: http://www.chinese-artists.net/huangjian/lessons/index.html
+        - name: 菜鸟教程
+          description: 入门教程合集
+          url: https://www.runoob.com/
+    - name: 有意思的网站
+      sites:
+        - name: 秘密花园
+          description: 1999 年建立的网站，远古网站
+          url: http://www.yini.org/
