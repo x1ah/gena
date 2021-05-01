@@ -8,7 +8,7 @@
     <title>{{ .Title }}</title>
     <meta name="keywords" content="{{ .Description }}">
     <meta name="description" content="{{ .Description }}">
-    {{ if .GoogleAnalytics }}
+    {{- if .GoogleAnalytics }}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ .GoogleAnalytics }}"></script>
     <script>
@@ -17,7 +17,7 @@
       gtag('js', new Date());
       gtag('config', '{{ .GoogleAnalytics }}');
     </script>
-    {{ end }}
+    {{- end }}
     {{ if .Favicon }}
     <link rel="shortcut icon" href="{{ .Favicon }}">
     {{ else }}
@@ -32,6 +32,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/xenon-skins.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/nav.css">
     <script src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/search.css">
+    {{- if searchEnabled }}
+    {{ renderSearchEngines }}
+    {{- end }}
+    <script>
+    //夜间模式切换
+    function switchNightMode() {
+        var night = document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+        if (night == '0') {
+            document.body.classList.add('night');
+            document.cookie = "night=1;path=/"
+        } else {
+            document.body.classList.remove('night');
+            document.cookie = "night=0;path=/"
+        }
+    }
+    </script>
     <!-- / FB Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{ .URL }}">
@@ -76,14 +93,14 @@
                     </div>
                 </header>
                 <ul id="main-menu" class="main-menu">
-                    {{ range .Content.Categories }}
+                    {{- range .Content.Categories }}
                     <li>
                         <a href="#{{ .Name }}" class="smooth">
                             <i class="linecons-star"></i>
                             <span class="title">{{ .Name }}</span>
                         </a>
                     </li>
-                    {{ end }}
+                    {{- end }}
                 </ul>
             </div>
         </div>
@@ -97,8 +114,15 @@
                             <i class="fa-bars"></i>
                         </a>
                     </li>
+                    <li class="switch-mode hover-line" onclick="switchNightMode()">
+                        <a href="#">
+                          <svg t="1593061068148" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1681" width="16" height="16">
+                            <path d="M582.4 326.4c-140.8 0-256 115.2-256 256s115.2 256 256 256 256-115.2 256-256-115.2-256-256-256z m0 448c-70.4 0-131.2-36.8-164.8-92.8 12.8 3.2 27.2 4.8 40 4.8 121.6 0 219.2-99.2 219.2-219.2 0-17.6-1.6-35.2-6.4-52.8 60.8 32 102.4 96 102.4 169.6 1.6 104-84.8 190.4-190.4 190.4zM582.4 262.4c17.6 0 32-14.4 32-32v-128c0-17.6-14.4-32-32-32s-32 14.4-32 32v128c0 17.6 14.4 32 32 32zM262.4 582.4c0-17.6-14.4-32-32-32h-128c-17.6 0-32 14.4-32 32s14.4 32 32 32h128c17.6 0 32-14.4 32-32zM310.4 356.8c6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6 12.8-12.8 12.8-32 0-44.8l-91.2-91.2c-12.8-12.8-32-12.8-44.8 0-12.8 12.8-12.8 32 0 44.8l91.2 91.2zM944 220.8c-12.8-12.8-32-12.8-44.8 0l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-33.6 0-44.8zM310.4 808l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-32 0-44.8-11.2-11.2-32-11.2-44.8 0z" p-id="1682" fill="#707070"></path>
+                          </svg>
+                        </a>
+                    </li>
                 </ul>
-                {{ if .Github }}
+                {{- if .Github }}
                 <ul class="user-info-menu right-links list-inline list-unstyled">
                     <li class="hidden-sm hidden-xs">
                         <a href="{{ .Github }}" target="_blank">
@@ -106,12 +130,37 @@
                         </a>
                     </li>
                 </ul>
-                {{ end }}
+                {{- end }}
             </nav>
-            {{ range .Content.Categories }}
+            {{- if searchEnabled }}
+            <section class="sousuo">
+              <div class="search">
+                <div class="search-box">
+                  <span class="search-icon" style="{{ defaultSearchEngineURL }}"></span>
+                  <input type="text" id="txt" class="search-input" autocomplete="off" placeholder="请输入关键字，按回车 / Enter 搜索">
+                  <button class="search-btn" id="search-btn"><i class="fa fa-search"></i></button>
+                </div>
+                <!-- 搜索热词 -->
+                <div class="box search-hot-text" id="box" style="display: none;">
+                  <ul></ul>
+                </div>
+                <!-- 搜索引擎 -->
+                <div class="search-engine" style="display: none;">
+                  <div class="search-engine-head">
+                    <strong class="search-engine-tit">选择您的默认搜索引擎：</strong>
+                    <div class="search-engine-tool">搜索热词： <span id="hot-btn"></span></div>
+                  </div>
+                  <ul class="search-engine-list search-engine-list_zmki_ul">
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <script>search()</script>
+            {{- end }}
+            {{- range .Content.Categories }}
             <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="{{ .Name }}"></i>{{ .Name }}</h4>
             <div class="row">
-                {{ range .Sites }}
+                {{- range .Sites }}
                 <div class="col-sm-3">
                     <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('{{ .URL }}', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="{{ .URL }}">
                         <div class="xe-comment-entry">
@@ -127,10 +176,10 @@
                         </div>
                     </div>
                 </div>
-                {{ end }}
+                {{- end }}
             </div>
             <br />
-            {{ end }}
+            {{- end }}
             <!-- Main Footer -->
             <!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
             <!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
