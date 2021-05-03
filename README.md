@@ -8,7 +8,7 @@
 
 ---
 
-![image](https://user-images.githubusercontent.com/14919255/115016835-3395f900-9ee8-11eb-90d7-5ed816f59872.png)
+![image](https://user-images.githubusercontent.com/14919255/116836115-ec9e4800-abf7-11eb-9a83-82eb379c130d.png)
 
 
 ## 安装
