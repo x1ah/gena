@@ -56,3 +56,11 @@ gena -c your/path/to/config.yaml 1> index.html
 ## 使用案例
 
 - [when.run/nav](https://when.run/nav/)
+
+
+## 交流群
+
+|QQ 群|
+|:--:|
+|群号：100916933<br><img src="https://user-images.githubusercontent.com/14919255/118518920-372cd200-b76b-11eb-8271-0ee04e8df04c.jpeg" height="350px" />|
+
