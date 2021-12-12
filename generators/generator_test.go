@@ -1,4 +1,4 @@
-package tests
+package generators
 
 import (
 	"bytes"
@@ -10,7 +10,6 @@ import (
 	"testing"
 
 	"github.com/x1ah/gena"
-	"github.com/x1ah/gena/generators"
 )
 
 func compareOutput(t *testing.T, configPath string) {
@@ -24,10 +23,10 @@ func compareOutput(t *testing.T, configPath string) {
 		t.Error("parse config error: ", configPath, err.Error())
 		return
 	}
-	var generator generators.Generator
+	var generator Generator
 	switch cfg.Template {
 	case "webstack":
-		generator = &generators.WebStackGenerator{}
+		generator = &WebStackGenerator{}
 	default:
 		log.Fatal("Invalid template name, expected: webstack")
 	}
