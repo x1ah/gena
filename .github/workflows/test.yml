@@ -1,5 +1,8 @@
-on: [push, pull_request]
+on: 
+  push: 
+
 name: Test
+
 jobs:
   test:
     strategy:
@@ -14,7 +17,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Test
-      run: go test -race -coverprofile=coverage.txt -covermode=atomic
+      run: go test -race -coverprofile=coverage.txt -covermode=atomic ./...
     - name: Upload to codecov
       uses: codecov/codecov-action@v2
       with:
@@ -23,3 +26,4 @@ jobs:
         name: codecov-umbrella # optional
         fail_ci_if_error: false # optional (default = false)
         verbose: true # optional (default = false)
+

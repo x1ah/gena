@@ -5,10 +5,6 @@ on:
     paths-ignore:
       - '**.pb.go'
       - '**_test.go'
-  pull_request:
-    paths-ignore:
-      - '**.pb.go'
-      - '**_test.go'
 jobs:
   # We already run the current golangci-lint in tests, but here we test
   # our GitHub action with the latest stable golangci-lint.
