@@ -20,15 +20,15 @@
     <link rel="shortcut icon" href="https://github.com/x1ah.png?size=40">
     
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/fonts/linecons/css/linecons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/fonts/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/xenon-core.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/xenon-components.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/xenon-skins.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/nav.css">
-    <script src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/search.css">
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/xenon-core.css">
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/xenon-components.css">
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/nav.css">
+    <script src="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/css/search.css">
     <script type="text/javascript">
 function search() {
     $(".search-icon").css("opacity", "1");
@@ -36,9 +36,9 @@ function search() {
     var hotList = 0;
     var searchData = {
         "thisSearch": "https://www.google.com/search?q=",
-        "thisSearchIcon": "https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png",
+        "thisSearchIcon": "https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png",
         "hotStatus": true,
-        "data": [{"name":"谷歌","img":"url('https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png')  -105px 0px","position":"-40px 0px","url":"https://www.google.com/search?q="},{"name":"GitHub","img":"url('https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -80px -175px","position":"0px -280px","url":"https://github.com/search?utf8=✓\u0026q="},{"name":"微博","img":"url('https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -80px -125px","position":"0px -200px","url":"https://s.weibo.com/weibo/"},{"name":"百度","img":"url('https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -80px 0px","position":"0px 0px","url":"https://www.baidu.com/s?wd="},{"name":"B站","img":"url('https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -105px -125px","position":"-40px -200px","url":"http://search.bilibili.com/all?keyword="},{"name":"知乎","img":"url('https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -105px -100px","position":"-40px -160px","url":"https://www.zhihu.com/search?type=content\u0026q="}]
+        "data": [{"name":"谷歌","img":"url('https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png')  -105px 0px","position":"-40px 0px","url":"https://www.google.com/search?q="},{"name":"GitHub","img":"url('https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -80px -175px","position":"0px -280px","url":"https://github.com/search?utf8=✓\u0026q="},{"name":"微博","img":"url('https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -80px -125px","position":"0px -200px","url":"https://s.weibo.com/weibo/"},{"name":"百度","img":"url('https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -80px 0px","position":"0px 0px","url":"https://www.baidu.com/s?wd="},{"name":"B站","img":"url('https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -105px -125px","position":"-40px -200px","url":"http://search.bilibili.com/all?keyword="},{"name":"知乎","img":"url('https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -105px -100px","position":"-40px -160px","url":"https://www.zhihu.com/search?type=content\u0026q="}]
     };
     var localSearchData = localStorage.getItem("searchData");
     if (localSearchData) {
@@ -327,7 +327,7 @@ function search() {
             <section class="sousuo">
               <div class="search">
                 <div class="search-box">
-                  <span class="search-icon" style="background: url('https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -40px 0px; opacity: 1;"></span>
+                  <span class="search-icon" style="background: url('https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/images/search_icon.png') -40px 0px; opacity: 1;"></span>
                   <input type="text" id="txt" class="search-input" autocomplete="off" placeholder="请输入关键字，按回车 / Enter 搜索">
                   <button class="search-btn" id="search-btn"><i class="fa fa-search"></i></button>
                 </div>
@@ -1066,15 +1066,15 @@ function search() {
     })();
     </script>
     <!-- Bottom Scripts -->
-    <script src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/TweenMax.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/resizeable.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/joinable.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/xenon-api.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/xenon-toggles.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/bootstrap.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/TweenMax.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/resizeable.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/joinable.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/xenon-api.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/xenon-toggles.js"></script>
     <!-- JavaScripts initializations and stuff -->
-    <script src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/xenon-custom.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/lozad.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/xenon-custom.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/x1ah/webstack-assets@master/assets/js/lozad.js"></script>
 </body>
 
 </html>

@@ -17,6 +17,7 @@ func compareOutput(t *testing.T, configPath string) {
 		return
 	}
 
+	t.Logf("Compare %s output", configPath)
 	outputPath := configPath + ".output"
 	cfg, err := gena.ParseConfig(configPath)
 	if err != nil {
@@ -41,14 +42,19 @@ func compareOutput(t *testing.T, configPath string) {
 	if string(outout) != writer.String() {
 		t.Fatal("output compare error: ", configPath, outputPath)
 	}
+	t.Logf("Compare %s output success", configPath)
 }
 
 func TestGenerator(t *testing.T) {
 	var walk = func(path string, info fs.FileInfo, err error) error {
+		if err != nil {
+			t.Fatal("walk spec error: ", err)
+			return err
+		}
 		compareOutput(t, path)
 		return nil
 	}
-	if err := filepath.Walk("spec", walk); err != nil {
+	if err := filepath.Walk("../tests/spec", walk); err != nil {
 		t.Error(err)
 	}
 }
