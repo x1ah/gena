@@ -151,6 +151,7 @@ content:
         - name: Leetcode
           description: 面试准备算法题必备，国内站和国外站数据互通
           url: https://leetcode-cn.com/
+          icon: https://icon.leetcode-cn.com/
         - name: CodeTop
           description: 企业面试题库
           url: https://codetop.cc/#/home
