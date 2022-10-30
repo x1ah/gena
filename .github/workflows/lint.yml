@@ -1,3 +1,4 @@
+
 ---
 name: Lint
 on:
@@ -8,28 +9,31 @@ on:
 jobs:
   # We already run the current golangci-lint in tests, but here we test
   # our GitHub action with the latest stable golangci-lint.
-  golangci-lint:
+  golangci:
     name: golangci-lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v3
+        with:
+          go-version: 1.16
+      - uses: actions/checkout@v3
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
           # Optional: version of golangci-lint to use in form of v1.2 or v1.2.3 or `latest` to use the latest version
-          version: v1.29
+          version: v1.35
 
-#  go1.16 required
-#  errcheck:
-#    name: Errcheck
-#    runs-on: ubuntu-latest
-#    steps:
-#    - uses: actions/checkout@master
-#    - name: check
-#      uses: grandcolline/golang-github-actions@v1.1.0
-#      with:
-#        run: errcheck
-#        token: ${{ secrets.GITHUB_TOKEN }}
+
+  errcheck:
+    name: Errcheck
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: check
+      uses: k8s-school/golang-github-actions@v1.1.2
+      with:
+        run: errcheck
+        token: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
     name: Lint
@@ -37,7 +41,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: check
-      uses: grandcolline/golang-github-actions@v1.1.0
+      uses: k8s-school/golang-github-actions@v1.1.2
       with:
         run: lint
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -48,21 +52,19 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: check
-      uses: grandcolline/golang-github-actions@v1.1.0
+      uses: k8s-school/golang-github-actions@v1.1.2
       with:
         run: staticcheck
         token: ${{ secrets.GITHUB_TOKEN }}
 
-#  go1.16 required
-#  sec:
-#    name: Sec
-#    runs-on: ubuntu-latest
-#    steps:
-#    - uses: actions/checkout@master
-#    - name: check
-#      uses: grandcolline/golang-github-actions@v1.1.0
-#      with:
-#        run: sec
-#        token: ${{ secrets.GITHUB_TOKEN }}
-#        flags: "-exclude=G104"
-#
+  sec:
+    name: Sec
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: check
+      uses: k8s-school/golang-github-actions@v1.1.2
+      with:
+        run: sec
+        token: ${{ secrets.GITHUB_TOKEN }}
+        flags: "-exclude=G104"
