@@ -30,6 +30,7 @@ content:
         - name: GitHub
           description: GitHub
           url: https://github.com/
+          icon: https://icon.github.com
         - name: V2EX
           description: 技术论坛，创意工作者们的社区
           url: https://www.v2ex.com/

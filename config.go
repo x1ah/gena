@@ -38,6 +38,7 @@ type Site struct {
 	Name        string
 	Description string
 	URL         string
+	Icon        string // 网站图标
 }
 
 // WebStackConf is config of webstack

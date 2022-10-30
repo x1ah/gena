@@ -9,6 +9,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/stretchr/testify/require"
 	"github.com/x1ah/gena"
 )
 
@@ -20,10 +21,7 @@ func compareOutput(t *testing.T, configPath string) {
 	t.Logf("Compare %s output", configPath)
 	outputPath := configPath + ".output"
 	cfg, err := gena.ParseConfig(configPath)
-	if err != nil {
-		t.Error("parse config error: ", configPath, err.Error())
-		return
-	}
+	require.Nil(t, err)
 	var generator Generator
 	switch cfg.Template {
 	case "webstack":
@@ -35,13 +33,8 @@ func compareOutput(t *testing.T, configPath string) {
 	generator.Run(cfg, writer)
 
 	outout, err := ioutil.ReadFile(outputPath)
-	if err != nil {
-		t.Error("read output file error: ", err.Error())
-		return
-	}
-	if string(outout) != writer.String() {
-		t.Fatal("output compare error: ", configPath, outputPath)
-	}
+	require.Nil(t, err)
+	require.Equal(t, string(outout), writer.String())
 	t.Logf("Compare %s output success", configPath)
 }
 
@@ -54,7 +47,6 @@ func TestGenerator(t *testing.T) {
 		compareOutput(t, path)
 		return nil
 	}
-	if err := filepath.Walk("../tests/spec", walk); err != nil {
-		t.Error(err)
-	}
+	err := filepath.Walk("../tests/spec", walk)
+	require.Nil(t, err)
 }
