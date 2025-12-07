@@ -1,0 +1,45 @@
+# title of website
+title: Test Tilde Site
+
+# description of website
+description: Test tilde template
+
+# favicon of website
+favicon: "https://github.com/x1ah.png?size=40"
+
+# your website url
+url: https://example.com
+
+# github profile url
+github: https://github.com/x1ah
+
+# footer message
+footer: © 2024 Test
+
+# template(theme) of your site
+template: tilde
+
+# Tilde template configuration
+tilde:
+  search:
+    url: https://duckduckgo.com/?q=
+    placeholder: "Search or enter URL"
+  theme: dark
+  show_keys: false
+
+content:
+  categories:
+    - name: 常用推荐
+      sites:
+        - name: GitHub
+          description: Code hosting platform
+          url: https://github.com/
+        - name: Google
+          description: Search engine
+          url: https://www.google.com/
+    - name: 技术工具
+      sites:
+        - name: Stack Overflow
+          description: Programming Q&A
+          url: https://stackoverflow.com/
+

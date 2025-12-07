@@ -1,70 +1,22 @@
-
----
 name: Lint
+
 on:
   push:
-    paths-ignore:
-      - '**.pb.go'
-      - '**_test.go'
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
 jobs:
-  # We already run the current golangci-lint in tests, but here we test
-  # our GitHub action with the latest stable golangci-lint.
-  golangci:
+  golangci-lint:
     name: golangci-lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-go@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
         with:
-          go-version: 1.16
-      - uses: actions/checkout@v3
+          go-version: '1.21'
       - name: golangci-lint
-        uses: golangci/golangci-lint-action@v3
+        uses: golangci/golangci-lint-action@v6
         with:
-          # Optional: version of golangci-lint to use in form of v1.2 or v1.2.3 or `latest` to use the latest version
-          version: v1.35
-
-
-  errcheck:
-    name: Errcheck
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: check
-      uses: k8s-school/golang-github-actions@v1.1.2
-      with:
-        run: errcheck
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: check
-      uses: k8s-school/golang-github-actions@v1.1.2
-      with:
-        run: lint
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-  staticcheck:
-    name: StaticCheck
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: check
-      uses: k8s-school/golang-github-actions@v1.1.2
-      with:
-        run: staticcheck
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-  sec:
-    name: Sec
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: check
-      uses: k8s-school/golang-github-actions@v1.1.2
-      with:
-        run: sec
-        token: ${{ secrets.GITHUB_TOKEN }}
-        flags: "-exclude=G104"
+          version: latest
+          args: --timeout=5m

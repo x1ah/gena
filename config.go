@@ -20,6 +20,7 @@ type Config struct {
 	Content         *Content
 	GoogleAnalytics string `yaml:"google_analytics"`
 	WebStack        *WebStackConf
+	Tilde           *TildeConf
 }
 
 // Content is struct of categories
@@ -51,6 +52,19 @@ type WebStackSearchConf struct {
 	Enabled bool
 	Default string
 	Engines []string
+}
+
+// TildeConf is config of tilde-enhanced
+type TildeConf struct {
+	Search   *TildeSearchConf
+	Theme    string
+	ShowKeys bool `yaml:"show_keys"`
+}
+
+// TildeSearchConf search config for tilde
+type TildeSearchConf struct {
+	URL         string
+	Placeholder string
 }
 
 // ParseConfig parse config from file

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <meta name="description" content="{{ .Description }}">
+    {{ if .Favicon }}
+    <link rel="icon" href="{{ .Favicon }}">
+    {{ end }}
+    {{- if .GoogleAnalytics }}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .GoogleAnalytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ .GoogleAnalytics }}');
+    </script>
+    {{- end }}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: {{ if eq (getTheme) "light" }}#f5f5f5{{ else }}#1a1a1a{{ end }};
+            color: {{ if eq (getTheme) "light" }}#333{{ else }}#e0e0e0{{ end }};
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .clock {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 30px;
+            cursor: pointer;
+            color: {{ if eq (getTheme) "light" }}#666{{ else }}#888{{ end }};
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-family: 'Courier New', monospace;
+            background: {{ if eq (getTheme) "light" }}#fff{{ else }}#2a2a2a{{ end }};
+            color: {{ if eq (getTheme) "light" }}#333{{ else }}#e0e0e0{{ end }};
+            border: 2px solid {{ if eq (getTheme) "light" }}#ddd{{ else }}#444{{ end }};
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: {{ if eq (getTheme) "light" }}#666{{ else }}#888{{ end }};
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .category {
+            background: {{ if eq (getTheme) "light" }}#fff{{ else }}#2a2a2a{{ end }};
+            padding: 20px;
+            border-radius: 4px;
+            border: 1px solid {{ if eq (getTheme) "light" }}#ddd{{ else }}#444{{ end }};
+        }
+
+        .category-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: {{ if eq (getTheme) "light" }}#333{{ else }}#fff{{ end }};
+            border-bottom: 2px solid {{ if eq (getTheme) "light" }}#ddd{{ else }}#444{{ end }};
+            padding-bottom: 10px;
+        }
+
+        .sites {
+            list-style: none;
+        }
+
+        .site-item {
+            margin-bottom: 10px;
+            padding: 8px 0;
+            cursor: pointer;
+            transition: padding-left 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .site-item:hover {
+            padding-left: 10px;
+        }
+
+        .site-key {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            background: {{ if eq (getTheme) "light" }}#f0f0f0{{ else }}#3a3a3a{{ end }};
+            border: 1px solid {{ if eq (getTheme) "light" }}#ddd{{ else }}#555{{ end }};
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .site-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            border-radius: 3px;
+        }
+
+        .site-name {
+            flex: 1;
+        }
+
+        .site-description {
+            font-size: 12px;
+            color: {{ if eq (getTheme) "light" }}#666{{ else }}#999{{ end }};
+            margin-top: 2px;
+        }
+
+        .help-text {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: {{ if eq (getTheme) "light" }}#666{{ else }}#888{{ end }};
+        }
+
+        .help-text a {
+            color: {{ if eq (getTheme) "light" }}#0066cc{{ else }}#4da6ff{{ end }};
+            text-decoration: none;
+        }
+
+        .help-text a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .clock {
+                font-size: 32px;
+            }
+            .categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="clock" id="clock" title="Click to view all sites">00:00:00</div>
+        
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="{{ getSearchPlaceholder }}" autocomplete="off">
+        </div>
+
+        <div class="categories" id="categories">
+            {{- range $index, $category := .Content.Categories }}
+            <div class="category" data-category-index="{{ $index }}">
+                <div class="category-title">{{ $category.Name }}</div>
+                <ul class="sites">
+                    {{- range $siteIndex, $site := $category.Sites }}
+                    <li class="site-item" data-key="{{ getFirstChar $site.Name }}" data-url="{{ $site.URL }}" data-category="{{ $index }}" data-site="{{ $siteIndex }}">
+                        {{- if showKeys }}
+                        <span class="site-key">{{ getFirstChar $site.Name }}</span>
+                        {{- else if $site.Icon }}
+                        <img src="{{ $site.Icon }}" alt="{{ $site.Name }}" class="site-icon" onerror="this.style.display='none'">
+                        {{- else }}
+                        <img src="{{ icon $site.URL }}" alt="{{ $site.Name }}" class="site-icon" onerror="this.style.display='none'">
+                        {{- end }}
+                        <div>
+                            <div class="site-name">{{ $site.Name }}</div>
+                            {{- if $site.Description }}
+                            <div class="site-description">{{ $site.Description }}</div>
+                            {{- end }}
+                        </div>
+                    </li>
+                    {{- end }}
+                </ul>
+            </div>
+            {{- end }}
+        </div>
+
+        <div class="help-text">
+            Press <strong>?</strong> to view help | Type site key to navigate | Enter URL to visit
+        </div>
+    </div>
+
+    <script>
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // Site data
+        const sites = [];
+        {{- range $categoryIndex, $category := .Content.Categories }}
+        {{- range $siteIndex, $site := $category.Sites }}
+        sites.push({
+            key: '{{ getFirstChar $site.Name }}',
+            name: {{ $site.Name | escapeJS | printf "%q" }},
+            url: {{ $site.URL | escapeJS | printf "%q" }},
+            category: {{ $categoryIndex }},
+            index: {{ $siteIndex }}
+        });
+        {{- end }}
+        {{- end }}
+
+        // Search input handler
+        const searchInput = document.getElementById('searchInput');
+        const searchURL = {{ getSearchURL | printf "%q" }};
+
+        // Site navigation map
+        const siteMap = {};
+        sites.forEach(site => {
+            const key = site.key.toLowerCase();
+            if (!siteMap[key]) {
+                siteMap[key] = [];
+            }
+            siteMap[key].push(site);
+        });
+
+        // Handle input
+        let currentInput = '';
+        let inputTimer = null;
+
+        searchInput.addEventListener('input', function(e) {
+            const value = e.target.value.trim();
+            currentInput = value;
+
+            // Clear timer
+            if (inputTimer) {
+                clearTimeout(inputTimer);
+            }
+
+            // If empty, clear highlights
+            if (!value) {
+                document.querySelectorAll('.site-item').forEach(item => {
+                    item.style.background = '';
+                });
+                return;
+            }
+
+            // Check for special commands
+            if (value.endsWith('!')) {
+                const cmd = value.slice(0, -1).toLowerCase();
+                if (cmd === 'invert') {
+                    toggleTheme();
+                    searchInput.value = '';
+                    return;
+                }
+                if (cmd === 'q') {
+                    // Quick launch - launch all sites with quickLaunch property
+                    // For now, just clear
+                    searchInput.value = '';
+                    return;
+                }
+                // Category launch: number!
+                const catNum = parseInt(cmd);
+                if (!isNaN(catNum) && catNum > 0 && catNum <= {{ len .Content.Categories }}) {
+                    const category = document.querySelector(`[data-category-index="${catNum - 1}"]`);
+                    if (category) {
+                        const siteItems = category.querySelectorAll('.site-item');
+                        siteItems.forEach(item => {
+                            const url = item.getAttribute('data-url');
+                            if (url) window.open(url, '_blank');
+                        });
+                    }
+                    searchInput.value = '';
+                    return;
+                }
+            }
+
+            // Check for URL pattern
+            if (value.match(/^https?:\/\//) || value.match(/^[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.[a-zA-Z]{2,}/)) {
+                // It's a URL
+                return;
+            }
+
+            // Check for search pattern (site:query)
+            if (value.includes(':')) {
+                const [siteKey, query] = value.split(':');
+                const matchedSites = siteMap[siteKey.toLowerCase()];
+                if (matchedSites && matchedSites.length > 0) {
+                    const site = matchedSites[0];
+                    const searchUrl = site.url.includes('?') 
+                        ? `${site.url}&q=${encodeURIComponent(query)}`
+                        : `${site.url}?q=${encodeURIComponent(query)}`;
+                    window.open(searchUrl, '_blank');
+                    searchInput.value = '';
+                    return;
+                }
+            }
+
+            // Check for path pattern (site/path)
+            if (value.includes('/')) {
+                const [siteKey, path] = value.split('/');
+                const matchedSites = siteMap[siteKey.toLowerCase()];
+                if (matchedSites && matchedSites.length > 0) {
+                    const site = matchedSites[0];
+                    const url = new URL(site.url);
+                    url.pathname = path.startsWith('/') ? path : '/' + path;
+                    window.open(url.toString(), '_blank');
+                    searchInput.value = '';
+                    return;
+                }
+            }
+
+            // Highlight matching sites
+            const key = value.toLowerCase();
+            document.querySelectorAll('.site-item').forEach(item => {
+                const itemKey = item.getAttribute('data-key');
+                if (itemKey && itemKey.toLowerCase().startsWith(key)) {
+                    item.style.background = '{{ if eq (getTheme) "light" }}#f0f0f0{{ else }}#3a3a3a{{ end }}';
+                } else {
+                    item.style.background = '';
+                }
+            });
+        });
+
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const value = e.target.value.trim();
+                
+                if (!value) return;
+
+                // URL pattern
+                if (value.match(/^https?:\/\//)) {
+                    window.open(value, '_blank');
+                    searchInput.value = '';
+                    return;
+                }
+
+                // Domain pattern
+                if (value.match(/^[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.[a-zA-Z]{2,}/)) {
+                    const url = value.startsWith('http') ? value : 'https://' + value;
+                    window.open(url, '_blank');
+                    searchInput.value = '';
+                    return;
+                }
+
+                // Ctrl+Enter adds .com
+                if (e.ctrlKey || e.metaKey) {
+                    window.open(`https://${value}.com`, '_blank');
+                    searchInput.value = '';
+                    return;
+                }
+
+                // Site key navigation
+                const key = value.toLowerCase();
+                const matchedSites = siteMap[key];
+                if (matchedSites && matchedSites.length > 0) {
+                    const site = matchedSites[0];
+                    window.open(site.url, '_blank');
+                    searchInput.value = '';
+                    return;
+                }
+
+                // Default: search
+                window.open(searchURL + encodeURIComponent(value), '_blank');
+                searchInput.value = '';
+            }
+
+            if (e.key === '?') {
+                e.preventDefault();
+                showHelp();
+            }
+
+            // Direct key navigation (when input is not focused)
+            if (document.activeElement !== searchInput && e.key.length === 1 && /[a-z0-9]/.test(e.key)) {
+                searchInput.focus();
+                searchInput.value = e.key;
+                searchInput.dispatchEvent(new Event('input'));
+            }
+        });
+
+        // Click on site item
+        document.querySelectorAll('.site-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                if (url) {
+                    window.open(url, '_blank');
+                }
+            });
+        });
+
+        // Clock click - show all sites
+        document.getElementById('clock').addEventListener('click', function() {
+            showHelp();
+        });
+
+        function showHelp() {
+            const helpText = `Available sites:\n\n` +
+                sites.map(s => `  ${s.key} - ${s.name}`).join('\n') +
+                `\n\nCommands:\n` +
+                `  ? - Show this help\n` +
+                `  invert! - Toggle theme\n` +
+                `  [number]! - Launch all sites in category\n` +
+                `  [key]:[query] - Search on site\n` +
+                `  [key]/[path] - Go to path on site\n` +
+                `  [url] - Visit URL\n` +
+                `  Ctrl+Enter - Add .com to query`;
+            alert(helpText);
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const isLight = body.style.background === 'rgb(245, 245, 245)' || 
+                          (!body.style.background && getComputedStyle(body).background.includes('rgb(245, 245, 245)'));
+            // This is a simplified version - in a real implementation, you'd toggle CSS classes
+            console.log('Theme toggle - would need full CSS implementation');
+        }
+
+        // Focus search on load
+        window.addEventListener('load', function() {
+            searchInput.focus();
+        });
+
+        // Handle query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const q = urlParams.get('q');
+        if (q) {
+            searchInput.value = q;
+            searchInput.focus();
+        }
+    </script>
+</body>
+</html>
+

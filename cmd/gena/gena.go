@@ -23,8 +23,10 @@ func main() {
 	switch cfg.Template {
 	case "webstack":
 		generator = &generators.WebStackGenerator{}
+	case "tilde":
+		generator = &generators.TildeGenerator{}
 	default:
-		log.Fatal("Invalid template name, expected: webstack")
+		log.Fatal("Invalid template name, expected: webstack or tilde")
 	}
 	generator.Run(cfg, os.Stdout)
 }
