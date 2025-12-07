@@ -56,8 +56,8 @@ type WebStackSearchConf struct {
 
 // TildeConf is config of tilde-enhanced
 type TildeConf struct {
-	Search *TildeSearchConf
-	Theme  string
+	Search   *TildeSearchConf
+	Theme    string
 	ShowKeys bool `yaml:"show_keys"`
 }
 

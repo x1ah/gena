@@ -25,7 +25,7 @@ func (tg *TildeGenerator) Run(cfg *gena.Config, writer io.Writer) {
 		},
 		"getFirstChar": func(s string) string {
 			s = strings.TrimSpace(s)
-			if len(s) == 0 {
+			if s == "" {
 				return ""
 			}
 			first := strings.ToLower(string(s[0]))
@@ -62,4 +62,3 @@ func (tg *TildeGenerator) Run(cfg *gena.Config, writer io.Writer) {
 		log.Fatal("[tilde] Render template error: ", err.Error())
 	}
 }
-
