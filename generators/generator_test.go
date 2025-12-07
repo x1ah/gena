@@ -26,8 +26,10 @@ func compareOutput(t *testing.T, configPath string) {
 	switch cfg.Template {
 	case "webstack":
 		generator = &WebStackGenerator{}
+	case "tilde":
+		generator = &TildeGenerator{}
 	default:
-		log.Fatal("Invalid template name, expected: webstack")
+		log.Fatal("Invalid template name, expected: webstack or tilde")
 	}
 	writer := new(bytes.Buffer)
 	generator.Run(cfg, writer)
